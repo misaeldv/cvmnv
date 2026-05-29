@@ -9,7 +9,7 @@ import AcercadeMi from './AcercadeMi.astro'
 import TecnologiasGrid from './TecnologiasGrid.astro'
 import Trabajo from './icons/Trabajo.astro'
 
-const { name, label, location } = basics
+const { name, label } = basics
 ---
 
 <section id="inicio" class="max-w-[1200px] mx-auto mt-20 grid lg:grid-cols-5 lg:grid-rows-3 gap-3">
@@ -43,16 +43,8 @@ const { name, label, location } = basics
       </div>
     </div>
   </BentoItem>
-
-  <BentoItem class="lg:col-start-5 rounded-xl border-2 border-blue-800/10 bg-gray-200/[.04] drop-shadow-md flex flex-col hidden lg:flex">
-    <div slot="content" class="h-full">
-      <div class="flex flex-col justify-center items-center h-full">
-        <span class="text-center">{location.region}</span>
-      </div>
-    </div>
-  </BentoItem>
   
-  <BentoItem class="lg:row-span-2 lg:row-start-4 rounded-xl border-2 border-blue-800/10 bg-gray-200/[.04] drop-shadow-md flex flex-col">
+  <BentoItem class="lg:col-span-2 lg:row-span-2 lg:row-start-4 rounded-xl border-2 border-blue-800/10 bg-gray-200/[.04] drop-shadow-md flex flex-col">
     <div slot="content" class="h-full">
       <div class="flex flex-col justify-center items-center h-full">
         <span class="text-center">{label}</span>
