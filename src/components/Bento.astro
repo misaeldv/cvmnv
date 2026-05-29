@@ -1,36 +1,28 @@
 ---
 import BentoItem from './BentoItem.astro'
-import ClimaCard from './ClimaCard.astro'
 import Linkedin from './icons/Linkedin.astro'
 import Github from './icons/Github.astro'
-import Plsql from './icons/Plsql.astro'
-import Sql from './icons/Sql.astro'
-import Next from './icons/Next.astro'
-import Apex from './icons/Apex.astro'
-import Python from './icons/Python.astro'
-import Oraclecloud from './icons/Oraclecloud.astro'
-import Typescript from './icons/Typescript.astro'
-import Tailwind from './icons/Tailwind.astro'
-import Node from './icons/Node.astro'
-import Trabajo from './icons/Trabajo.astro'
-import Supabase from './icons/Supabase.astro'
-import Javascript from './icons/Javascript.astro'
 import { basics } from '../info.json'
 import { Image } from 'astro:assets'
 import Experiencia from './Experiencia.astro'
 import AcercadeMi from './AcercadeMi.astro'
+import TecnologiasGrid from './TecnologiasGrid.astro'
+import Trabajo from './icons/Trabajo.astro'
 
-const { name, label, summary, location } = basics
+const { name, label, location } = basics
 ---
-<section id="inicio" class="max-w-[1200px] mx-auto mt-20 grid lg:grid-cols-2 lg:grid-cols-5 lg:grid-rows-3 gap-3">
-  <BentoItem class="lg:col-span-4 lg:row-span-3 rounded-xl border-2 border-blue-800/10 bg-gray-200/[.04] drop-shadow-md	flex flex-col" >
+
+<section id="inicio" class="max-w-[1200px] mx-auto mt-20 grid lg:grid-cols-5 lg:grid-rows-3 gap-3">
+  <BentoItem class="lg:col-span-4 lg:row-span-3 rounded-xl border-2 border-blue-800/10 bg-gray-200/[.04] drop-shadow-md flex flex-col">
     <div slot="content">
       <div class="relative flex flex-col lg:flex-row w-full h-full lg:justify-between justify-around">
         <div class="flex flex-col px-4 py-4 lg:p-8 justify-between">
-          <h1 class="text-xl lg:text-3xl font-semibold leading-10">{ name }</h1>
-          <h2 class="text-xs lg:text-base font-semibold bg-gradient-to-r from-yellow-500 via-yellow-50 to-yellow-50 inline-block text-transparent bg-clip-text">Entusiasta | Creativo | Optimista</h2>
+          <div>
+            <h1 class="text-xl lg:text-3xl font-semibold leading-10">{name}</h1>
+            <h2 class="text-xs lg:text-base font-semibold bg-gradient-to-r from-yellow-500 via-yellow-50 to-yellow-50 inline-block text-transparent bg-clip-text">Entusiasta | Creativo | Optimista</h2>
+          </div>
           <div class="flex-row flex gap-4 text-gray-300 mt-3 flex-wrap">
-            <a target="_blank" class="ease-in-out hover:scale-110  transition flex items-center" href="https://www.linkedin.com/in/misaelnv">
+            <a target="_blank" class="ease-in-out hover:scale-110 transition flex items-center" href="https://www.linkedin.com/in/misaelnv">
               <Linkedin class="size-5 fill-slate-200" />
               <span class="ml-2 hidden sm:block">Linkedin</span>
             </a>
@@ -39,117 +31,50 @@ const { name, label, summary, location } = basics
               <span class="ml-2 hidden sm:block">Github</span>
             </a>
           </div>
-          <p class="text-xs lg:text-base mt-10 text-gray-300 lg:leading-7 mt-2">
+          <p class="text-xs lg:text-base mt-4 text-gray-300 lg:leading-7">
             En constante búsqueda de oportunidades para crecer y evolucionar profesionalmente. 
             Apasionado por enfrentar nuevos desafíos y elevar proyectos web emocionantes al siguiente nivel. 
             Listo para aportar mi experiencia y creatividad en entornos dinámicos que requieran innovación y excelencia técnica.
           </p>
         </div>
-        <div class="flex flex-col p-1 justify-between hidden md:hidden lg:inline">
+        <div class="hidden lg:flex flex-col p-1 justify-between">
           <Image src="/img/avatar.jpg" alt="profile picture" class="object-fill rounded-r-lg" width="285" height="224" />
         </div>
       </div>
     </div>
   </BentoItem>
-  <BentoItem class="lg:col-start-5 rounded-xl border-2 border-blue-800/10 bg-gray-200/[.04] drop-shadow-md flex flex-col  hidden md:hidden lg:inline" >
+
+  <BentoItem class="lg:col-start-5 rounded-xl border-2 border-blue-800/10 bg-gray-200/[.04] drop-shadow-md flex flex-col hidden lg:flex">
     <div slot="content" class="h-full">
-        <div class="flex flex-col justify-center items-center h-full gap-3 h-full">
-          <span class="text-center "> { location.region }</span>
-        </div>
-    </div>
-  </BentoItem>
-  <BentoItem class="lg:row-span-4 lg:col-start-5 lg:row-start-2 rounded-xl border-2 border-blue-800/10 bg-gray-200/[.04] drop-shadow-md flex flex-col hidden md:hidden lg:inline" >
-    <div slot="content" class="h-full">
-      <ClimaCard />
-    </div>
-  </BentoItem>
-  <BentoItem class="lg:row-span-2 lg:row-start-4  rounded-xl border-2 border-blue-800/10 bg-gray-200/[.04] drop-shadow-md flex flex-col" >
-    <div slot="content" class="h-full">
-      <div class="flex flex-col justify-center items-center h-full gap-3 h-full">
-        <span class="text-center"> { label }</span>
+      <div class="flex flex-col justify-center items-center h-full">
+        <span class="text-center">{location.region}</span>
       </div>
     </div>
   </BentoItem>
-  <BentoItem class="lg:col-span-3 lg:row-span-2 lg:row-start-4  rounded-xl border-2 border-blue-800/10 bg-gray-200/[.04] drop-shadow-md flex flex-col" >
-    <div slot="content">
-      <div class="px-4 py-2 lg:px-6 lg:py-4">
-        <span class="purple_gradient font-bold text-2xl">Tecnologías</span>
-        <div class="grid place-items-center grid-cols-2 lg:grid-cols-6 gap-4 mt-6">
-            <div class="flex flex-col justify-center items-center ">
-            <div class="h-full w-full p-3">
-              <Plsql class="fill-slate-200" width="35" height="35" />
-            </div>
-            <span class="text-xs font-light">Pl/Sql</span>
-            </div>
-            <div class="flex flex-col justify-center items-center ">
-              <div class="h-full w-full p-3">
-                <Sql class="fill-slate-200" width="35" height="35" />
-              </div>
-              <span class="text-xs font-light">Oracle Sql</span>
-            </div>
-            <div class="flex flex-col justify-center items-center ">
-              <div class="h-full w-full p-3">
-                <Apex class="fill-slate-200" width="35" height="35" />
-              </div>
-              <span class="text-xs font-light">Oracle Apex</span>
-            </div>
-            <div class="flex flex-col justify-center items-center ">
-              <div class="h-full w-full p-3">
-                <Oraclecloud class="fill-slate-200" width="35" height="35" />
-              </div>
-              <span class="text-xs font-light">Oracle Cloud</span>
-            </div>
-            <div class="flex flex-col justify-center items-center ">
-              <div class="h-full w-full p-3">
-                <Javascript class="fill-slate-200" width="35" height="35" />
-              </div>
-              <span class="text-xs font-light">Javascript</span>
-            </div>
-            <div class="flex flex-col justify-center items-center ">
-              <div class="h-full w-full p-3">
-                <Next class="fill-slate-200" width="35" height="35" />
-              </div>
-              <span class="text-xs font-light">Next js</span>
-            </div>
-            <div class="flex flex-col justify-center items-center ">
-              <div class="h-full w-full p-3">
-                <Node class="fill-slate-200" width="35" height="35" />
-              </div>
-              <span class="text-xs font-light">Node js</span>
-            </div>
-            <div class="flex flex-col justify-center items-center ">
-              <div class="h-full w-full p-3">
-                <Supabase class="fill-slate-200" width="35" height="35" />
-              </div>
-              <span class="text-xs font-light">Supabase</span>
-            </div>
-            <div class="flex flex-col justify-center items-center ">
-              <div class="h-full w-full p-3">
-                <Tailwind class="fill-slate-200" width="35" height="35" />
-              </div>
-              <span class="text-xs font-light">Tailwind</span>
-            </div>
-            <div class="flex flex-col justify-center items-center ">
-              <div class="h-full w-full p-3">
-                <Typescript class="fill-slate-200" width="35" height="35" />
-              </div>
-              <span class="text-xs font-light">TypeScript</span>
-            </div>
-            <div class="flex flex-col justify-center items-center ">
-              <div class="h-full w-full p-3">
-                <Python width="35" height="35" />
-              </div>
-              <span class="text-xs font-light">Python</span>
-            </div>
-          </div>
-        </div>
+  
+  <BentoItem class="lg:row-span-2 lg:row-start-4 rounded-xl border-2 border-blue-800/10 bg-gray-200/[.04] drop-shadow-md flex flex-col">
+    <div slot="content" class="h-full">
+      <div class="flex flex-col justify-center items-center h-full">
+        <span class="text-center">{label}</span>
       </div>
+    </div>
+  </BentoItem>
+
+  <BentoItem class="lg:col-span-3 lg:row-span-2 lg:row-start-4 rounded-xl border-2 border-blue-800/10 bg-gray-200/[.04] drop-shadow-md flex flex-col">
+    <div slot="content" class="px-4 py-2 lg:px-6 lg:py-4">
+      <span class="purple_gradient font-bold text-2xl">Tecnologías</span>
+      <TecnologiasGrid />
+    </div>
   </BentoItem>
 </section>
+
 <section id="experiencia" class="max-w-[1200px] mx-auto mt-20">
-  <h2 class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white"><Trabajo class="size-6" /> Experiencia laboral</h2>
+  <h2 class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white">
+    <Trabajo class="size-6" /> Experiencia laboral
+  </h2>
   <Experiencia />
 </section>
+
 <section id="sobre-mi" class="max-w-[1200px] mx-auto mt-20">
   <AcercadeMi />
 </section>
